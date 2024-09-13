@@ -1,5 +1,5 @@
 const express=require('express');
-const problemRouter=require('./probelm.routes')
+const problemRouter=require('./problem.routes')
 
 const v1Router=express.Router();
 
