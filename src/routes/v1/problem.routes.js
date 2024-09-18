@@ -11,7 +11,7 @@ problemRouter.get('/:id',problemController.getProblem);
 
 problemRouter.get('/',problemController.getProblems);
 
-problemRouter.delete('/id',problemController.deleteProblem);
+problemRouter.delete('/:id',problemController.deleteProblem);
 
 problemRouter.put('/:id',problemController.updateProblem);
 
