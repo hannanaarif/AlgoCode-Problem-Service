@@ -1,7 +1,8 @@
 const express=require('express');
 const bodyparser=require('body-parser')
-const { ServerConfig } = require('./src/config');
-const apiRoutes=require('./src/routes');
+const { ServerConfig } = require('./config');
+const apiRoutes=require('./routes');
+const errorHandler = require('./utils/errorHandler');
 const app=express();
 const PORT=ServerConfig.PORT
 
@@ -15,6 +16,8 @@ app.get('/ping',(req,res)=>{
 
 app.use('/api',apiRoutes)
 
+app.use(errorHandler);
+
 app.listen(PORT,()=>{
-    console.log(`Server is ruuning on ${PORT}`);
+    console.log(`Server is running on ${PORT}`);
 })

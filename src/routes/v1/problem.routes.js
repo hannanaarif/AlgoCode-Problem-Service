@@ -3,13 +3,17 @@ const { problemController } = require('../../controllers');
 
 const problemRouter=express.Router();
 
+problemRouter.get('/ping',problemController.pingpong)
 
-problemRouter.use('/ping',problemController.pingpong)
-problemRouter.use('/',problemController.addProblem);
-problemRouter.use('/id',problemController.getProblem);
-problemRouter.use('/',problemController.getProblems);
-problemRouter.use('/id',problemController.deleteProblem);
-problemRouter.use('/id',problemController.updateProblem);
+problemRouter.post('/',problemController.addProblem);
+
+problemRouter.get('/:id',problemController.getProblem);
+
+problemRouter.get('/',problemController.getProblems);
+
+problemRouter.delete('/id',problemController.deleteProblem);
+
+problemRouter.put('/:id',problemController.updateProblem);
 
 
 module.exports=problemRouter;
