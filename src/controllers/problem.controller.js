@@ -15,7 +15,7 @@ function addProblem(req,res,next){
     }
 }
 
-function getProblem(){
+function getProblem(req,res,next){
     try{
         throw new BadRequest('Addproblem',{missing:['problem name']});
     }
@@ -24,7 +24,7 @@ function getProblem(){
     }
 }
 
-function getProblems(){
+function getProblems(req,res,next){
     try{
         throw new BadRequest('Addproblem',{missing:['problem name']});
     }
@@ -33,7 +33,7 @@ function getProblems(){
     }
 }
 
-function deleteProblem(){
+function deleteProblem(req,res,next){
     try{
         throw new BadRequest('Addproblem',{missing:['problem name']});
     }
@@ -42,7 +42,7 @@ function deleteProblem(){
     } 
 }
 
-function updateProblem(){
+function updateProblem(req,res,next){
     try{
         throw new NotImplemented('Addproblem');
     }
