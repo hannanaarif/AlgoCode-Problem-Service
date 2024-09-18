@@ -1,34 +1,54 @@
+const {StatusCodes}=require('http-status-codes')
+const BadRequest = require('../errors/badrequest.error');
+const NotImplemented = require('../errors/notImplemented.error');
+
 function pingpong(req,res){
    return res.json({"message":"ping from problem controll"});
 }
 
-function addProblem(req,res){
-     return res.status(501).json({
-        message:"Not Implemented"
-     })
+function addProblem(req,res,next){
+    try{
+        throw new NotImplemented('Addproblem');
+    }
+    catch(error){
+        next(error);
+    }
 }
 
-function getProblem(){
-    return res.status(501).json({
-        message:"Not Implemented"
-     })
+function getProblem(req,res,next){
+    try{
+        throw new BadRequest('Addproblem',{missing:['problem name']});
+    }
+    catch(error){
+        next(error);
+    }
 }
 
-function getProblems(){
-    return res.status(501).json({
-        message:"Not Implemented"
-     })
+function getProblems(req,res,next){
+    try{
+        throw new BadRequest('Addproblem',{missing:['problem name']});
+    }
+    catch(error){
+        next(error);
+    }
 }
 
-function deleteProblem(){
-    return res.status(501).json({
-        message:"Not Implemented"
-     }) 
+function deleteProblem(req,res,next){
+    try{
+        throw new BadRequest('Addproblem',{missing:['problem name']});
+    }
+    catch(error){
+        next(error);
+    } 
 }
 
-function updateProblem(){
-
-
+function updateProblem(req,res,next){
+    try{
+        throw new NotImplemented('Addproblem');
+    }
+    catch(error){
+        next(error);
+    }
 }
 
 module.exports={
