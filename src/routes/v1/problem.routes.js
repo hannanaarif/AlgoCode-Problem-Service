@@ -5,6 +5,7 @@ const problemRouter=express.Router();
 
 problemRouter.get('/ping',problemController.pingpong)
 
+console.log("from problem controller");
 problemRouter.post('/',problemController.addProblem);
 
 problemRouter.get('/:id',problemController.getProblem);
