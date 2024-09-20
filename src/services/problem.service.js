@@ -21,5 +21,11 @@ class ProblemService {
            const problems=await this.problemRepository.getAllProblems();
            return problems    
     }
+
+    async getProblem(problemid){
+        console.log("form service get problem");
+        const problems=await this.problemRepository.getProblem(problemid);
+        return problems 
+    }
 }
 module.exports = ProblemService;

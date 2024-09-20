@@ -29,11 +29,11 @@ async function addProblem(req,res,next){
 
 async function getProblem(req,res,next){
     try{
-        console.log("getAllproblem controller")
-        const problems=await problemService.getAllProblems();
+        console.log("form controller get problem");
+        const problems=await problemService.getProblem(req.params.id);
         return res.status(StatusCodes.OK).json({
             success:true,
-            message:"Successfully fetched all problems",
+            message:"Successfully fetched problem",
             error:{},
             data:problems
         });
