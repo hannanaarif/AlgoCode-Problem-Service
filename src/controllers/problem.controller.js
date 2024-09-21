@@ -29,7 +29,6 @@ async function addProblem(req,res,next){
 
 async function getProblem(req,res,next){
     try{
-        console.log("form controller get problem");
         const problems=await problemService.getProblem(req.params.id);
         return res.status(StatusCodes.OK).json({
             success:true,
@@ -59,18 +58,30 @@ async function getProblems(req,res,next){
     }
 }
 
-function deleteProblem(req,res,next){
-    try{
-        throw new BadRequest('Addproblem',{missing:['problem name']});
+async function deleteProblem(req,res,next){
+    try {
+        const problem=await problemService.deleteProblem(req.params.id);
+        console.log('delete controller');
+        return res.status(StatusCodes.OK).json({
+            success:true,
+            message:"Successfully deleted the problem",
+            error:{},
+            data:{}
+        })
+    } catch (error) {
+            next(error);
     }
-    catch(error){
-        next(error);
-    } 
 }
 
-function updateProblem(req,res,next){
+async function updateProblem(req,res,next){
     try{
-        throw new NotImplemented('Addproblem');
+        const updateproblem=await problemService.updateProblem(req.params.id,req.body);
+        return res.status(StatusCodes.OK).json({
+            success:true,
+            message:"updated the problem",
+            error:{},
+            data:updateproblem
+        });
     }
     catch(error){
         next(error);

@@ -27,5 +27,18 @@ class ProblemService {
         const problems=await this.problemRepository.getProblem(problemid);
         return problems 
     }
+
+    async deleteProblem(problemid){
+        console.log("delete service",problemid);
+        const problem=await this.problemRepository.deleteProblem(problemid);
+        console.log('problem from serice not found',probelm);
+        return problem;
+    }
+
+    async updateProblem(problemid,data){
+        console.log("data",data);
+        const updateproblem=await this.problemRepository.updateProblem(problemid,data);
+        return updateproblem;
+    }
 }
 module.exports = ProblemService;

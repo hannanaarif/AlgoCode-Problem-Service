@@ -3,7 +3,10 @@ const problemRouter=require('./problem.routes')
 
 const v1Router=express.Router();
 
-console.log("problem v1 index.js");
+
+
+console.log("v1 index.js");
+
 
 v1Router.use('/problems',problemRouter);
 

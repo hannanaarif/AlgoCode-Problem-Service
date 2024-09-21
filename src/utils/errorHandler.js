@@ -11,7 +11,6 @@ function errorHandler(err,req,res,next){
             data:{}
         })
     }
-
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
         success:false,
         message:'something went we dont know wrong',
