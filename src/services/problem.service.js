@@ -29,9 +29,7 @@ class ProblemService {
     }
 
     async deleteProblem(problemid){
-        console.log("delete service",problemid);
         const problem=await this.problemRepository.deleteProblem(problemid);
-        console.log('problem from serice not found',probelm);
         return problem;
     }
 

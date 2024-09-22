@@ -62,11 +62,12 @@ async function deleteProblem(req,res,next){
     try {
         const problem=await problemService.deleteProblem(req.params.id);
         console.log('delete controller');
+        
         return res.status(StatusCodes.OK).json({
             success:true,
             message:"Successfully deleted the problem",
             error:{},
-            data:{}
+            data:problem
         })
     } catch (error) {
             next(error);

@@ -47,9 +47,14 @@ async createProblem(problemData){
         //     throw new BadRequest('problem ID', { message: 'The provided ID is not a valid ObjectId.' });
         // }
         const problem=await Problem.findByIdAndDelete(problemid);
+
         if(!problem){
             throw new NotFound("problem",problemid);
         }
+        // if(problem){
+
+        // }
+        console.log(problem);
         return problem;
     }
 
