@@ -1,3 +1,4 @@
+const logger = require('../config/logger.config');
 const { SanitizeMarkdown } = require('../utils');
 
 class ProblemService {
@@ -30,6 +31,8 @@ class ProblemService {
 
     async deleteProblem(problemid){
         const problem=await this.problemRepository.deleteProblem(problemid);
+        logger.error("Error found in deleteproblem method of prblem service");
+        console.log("data",probelem);
         return problem;
     }
 

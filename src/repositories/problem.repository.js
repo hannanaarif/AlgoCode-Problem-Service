@@ -11,6 +11,7 @@ async createProblem(problemData){
         const problem=await Problem.create({
             title:problemData.title,
             description:problemData.description,
+            codeStubs:problemData.codeStubs,
             testcases:(problemData.testcases)?problemData.testcases:[],
         });
         return problem; 
