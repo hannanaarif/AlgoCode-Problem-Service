@@ -1,7 +1,7 @@
-const NotFound = require('../errors/notfound.error');
-const BadRequest=require('../errors/badrequest.error');
+// const NotFound = require('../errors/notfound.error');
+import NotFound from '../errors/notFound.error'
+
 const {Problem}=require('../models');
-const { updateMany } = require('../models/problem.model');
 
 class ProblemRepository{
 
@@ -28,11 +28,12 @@ async createProblem(problemData){
 
     async getProblem(id){
         try {
-        console.log("form repository get problem");
+        console.log("from repository get problem",id);
         const problem=await Problem.findById(id);
         if(!problem){
             throw new NotFound("problem",id);
         }
+        console.log(problem);
         return problem;
 
         } catch (error) {
