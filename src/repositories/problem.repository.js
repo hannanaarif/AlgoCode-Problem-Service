@@ -1,5 +1,5 @@
-// const NotFound = require('../errors/notfound.error');
-import NotFound from '../errors/notFound.error'
+const NotFound = require('../errors/notfound.error');
+// import NotFound from '../errors/notFound.error'
 
 const {Problem}=require('../models');
 
