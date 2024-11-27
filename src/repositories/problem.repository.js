@@ -1,5 +1,5 @@
-const NotFound = require('../errors/notfound.error');
-const BadRequest=require('../errors/badrequest.error');
+const NotFound = require('../errors/notfound.error.js');
+const BadRequest=require('../errors/badrequest.error.js');
 const {Problem}=require('../models');
 const { updateMany } = require('../models/problem.model');
 
@@ -7,7 +7,6 @@ class ProblemRepository{
 
 async createProblem(problemData){
     try {
-        console.log('inside addProblem Repo')
         const problem=await Problem.create({
             title:problemData.title,
             description:problemData.description,
@@ -28,11 +27,12 @@ async createProblem(problemData){
 
     async getProblem(id){
         try {
-        console.log("form repository get problem");
+        console.log("from repository get problem",id);
         const problem=await Problem.findById(id);
         if(!problem){
             throw new NotFound("problem",id);
         }
+        console.log(problem);
         return problem;
 
         } catch (error) {
@@ -42,19 +42,12 @@ async createProblem(problemData){
     }
 
     async deleteProblem(problemid) {
-         // Input validation
-        //  if (!mongoose.Types.ObjectId.isValid(problemid || problemid.length !== 24)) {
-        //     console.log('inside delete Problem mongoose');
-        //     throw new BadRequest('problem ID', { message: 'The provided ID is not a valid ObjectId.' });
-        // }
+    
         const problem=await Problem.findByIdAndDelete(problemid);
 
         if(!problem){
             throw new NotFound("problem",problemid);
         }
-        // if(problem){
-
-        // }
         console.log(problem);
         return problem;
     }
