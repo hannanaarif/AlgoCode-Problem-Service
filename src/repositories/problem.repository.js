@@ -1,7 +1,6 @@
 const NotFound = require('../errors/notfound.error.js');
 const BadRequest=require('../errors/badrequest.error.js');
 const {Problem}=require('../models');
-const { updateMany } = require('../models/problem.model');
 
 class ProblemRepository{
 
