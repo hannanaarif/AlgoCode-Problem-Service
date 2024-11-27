@@ -1,4 +1,4 @@
-const NotFound = require('../errors/notfound.error.js');
+const NotFound = require('../errors/notFound.error.js');
 const BadRequest=require('../errors/badrequest.error.js');
 const {Problem}=require('../models');
 
@@ -33,7 +33,6 @@ async createProblem(problemData){
         }
         console.log(problem);
         return problem;
-
         } catch (error) {
             throw error;
         }
