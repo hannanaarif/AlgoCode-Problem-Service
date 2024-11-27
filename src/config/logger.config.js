@@ -28,7 +28,8 @@ allowedTransport.push(new winston.transports.File({
 allowedTransport.push(new winston.transports.MongoDB({
     level:'error',
     db:LOG_DB_URL,
-    collection:'logs'
+    collection:'logs',
+    options: { useUnifiedTopology: true }
 }))
 
 const logger=winston.createLogger({
